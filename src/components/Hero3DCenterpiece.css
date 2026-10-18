@@ -1,0 +1,432 @@
+/* Hero 3D Centerpiece — Precision Dimensional Glass Sculpture */
+
+.hero-3d-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  height: 480px;
+  margin: 0 auto;
+  perspective: 1100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+@media (max-width: 768px) {
+  .hero-3d-wrapper {
+    max-width: 340px;
+    height: 340px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+}
+
+.hero-3d-stage {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  will-change: transform;
+}
+
+.hero-3d-scene {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .hero-3d-scene {
+    width: 170px;
+    height: 170px;
+  }
+}
+
+/* Ambient Floating Animation */
+.ambient-float {
+  animation: ambientFloat 8s ease-in-out infinite alternate;
+}
+
+@keyframes ambientFloat {
+  0% {
+    transform: rotateX(16deg) rotateY(-22deg) translateY(-8px);
+  }
+  50% {
+    transform: rotateX(20deg) rotateY(-15deg) translateY(6px);
+  }
+  100% {
+    transform: rotateX(14deg) rotateY(-26deg) translateY(-8px);
+  }
+}
+
+/* Glowing Energy Core in the Center of 3D Prism */
+.cube-core-glow {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.45) 0%, rgba(37, 99, 235, 0.25) 50%, transparent 75%);
+  filter: blur(24px);
+  transform: translateZ(0);
+  pointer-events: none;
+  animation: corePulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes corePulse {
+  0% {
+    opacity: 0.6;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 0.95;
+    transform: scale(1.15);
+  }
+}
+
+/* 3D Glass Prism Cube Faces */
+.glass-prism {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  transform-style: preserve-3d;
+}
+
+@media (max-width: 768px) {
+  .glass-prism {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+.prism-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid rgba(228, 234, 241, 0.9);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.9), 0 8px 24px rgba(37, 99, 235, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.face-front {
+  transform: translateZ(80px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(239, 247, 255, 0.5) 100%);
+  border-color: rgba(56, 189, 248, 0.5);
+}
+
+.face-back {
+  transform: rotateY(180deg) translateZ(80px);
+  background: rgba(229, 243, 255, 0.4);
+}
+
+.face-right {
+  transform: rotateY(90deg) translateZ(80px);
+  background: linear-gradient(180deg, rgba(239, 247, 255, 0.7) 0%, rgba(213, 234, 254, 0.5) 100%);
+}
+
+.face-left {
+  transform: rotateY(-90deg) translateZ(80px);
+  background: rgba(247, 250, 252, 0.6);
+}
+
+.face-top {
+  transform: rotateX(90deg) translateZ(80px);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(239, 247, 255, 0.6) 100%);
+  border-color: rgba(255, 255, 255, 0.95);
+}
+
+.face-bottom {
+  transform: rotateX(-90deg) translateZ(80px);
+  background: rgba(213, 234, 254, 0.3);
+}
+
+@media (max-width: 768px) {
+  .face-front { transform: translateZ(65px); }
+  .face-back { transform: rotateY(180deg) translateZ(65px); }
+  .face-right { transform: rotateY(90deg) translateZ(65px); }
+  .face-left { transform: rotateY(-90deg) translateZ(65px); }
+  .face-top { transform: rotateX(90deg) translateZ(65px); }
+  .face-bottom { transform: rotateX(-90deg) translateZ(65px); }
+}
+
+.face-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-primary-blue);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-light-blue);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+}
+
+.face-coord {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--color-muted-text);
+  letter-spacing: 0.05em;
+}
+
+.face-corner-mark {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 1.5px solid var(--color-sky-accent);
+}
+
+.mark-tl { top: 8px; left: 8px; border-right: none; border-bottom: none; }
+.mark-br { bottom: 8px; right: 8px; border-left: none; border-top: none; }
+
+.face-grid {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(37, 99, 235, 0.15) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(37, 99, 235, 0.15) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Layered 3D Telemetry Planes */
+.floating-plane {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(228, 234, 241, 0.95);
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 32px rgba(16, 24, 40, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.95);
+  pointer-events: none;
+}
+
+.plane-front {
+  width: 190px;
+  padding: 12px 14px;
+  transform: translate3d(50px, 60px, 95px);
+}
+
+@media (max-width: 768px) {
+  .plane-front {
+    width: 160px;
+    padding: 10px;
+    transform: translate3d(35px, 45px, 75px);
+  }
+}
+
+.plane-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.plane-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-sky-accent);
+}
+
+.plane-dot.active {
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+}
+
+.plane-title {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-navy-text);
+}
+
+.plane-data-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  margin-bottom: 8px;
+}
+
+.data-metric {
+  color: var(--color-secondary-text);
+}
+
+.data-metric.highlight {
+  color: var(--color-primary-blue);
+  font-weight: 700;
+}
+
+.data-arrow {
+  color: var(--color-sky-accent);
+  font-weight: 700;
+}
+
+.plane-bar {
+  width: 100%;
+  height: 4px;
+  background: var(--color-pale-blue);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.plane-bar-fill {
+  width: 78%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary-blue), var(--color-sky-accent));
+  border-radius: 2px;
+}
+
+.plane-back {
+  width: 180px;
+  padding: 10px 12px;
+  transform: translate3d(-70px, -60px, -70px);
+  background: rgba(239, 247, 255, 0.7);
+  border-color: rgba(213, 234, 254, 0.8);
+}
+
+@media (max-width: 768px) {
+  .plane-back {
+    width: 140px;
+    transform: translate3d(-50px, -45px, -50px);
+  }
+}
+
+.blueprint-lines {
+  height: 20px;
+  background-image: repeating-linear-gradient(0deg, var(--color-light-blue) 0, var(--color-light-blue) 1px, transparent 1px, transparent 6px);
+  margin-bottom: 6px;
+  border-radius: 2px;
+}
+
+.blueprint-tag {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: var(--color-primary-blue);
+}
+
+.plane-badge {
+  padding: 6px 12px;
+  transform: translate3d(-35px, 80px, 115px);
+  background: var(--color-white);
+  border-color: var(--color-light-blue);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.12);
+}
+
+@media (max-width: 768px) {
+  .plane-badge {
+    transform: translate3d(-25px, 60px, 85px);
+  }
+}
+
+.badge-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.badge-status {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--color-muted-text);
+  letter-spacing: 0.05em;
+}
+
+.badge-value {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-navy-text);
+}
+
+/* 3D Precision Orbital Geometry Rings */
+.orbital-ring {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  transform-style: preserve-3d;
+}
+
+.ring-primary {
+  width: 320px;
+  height: 320px;
+  border: 1px dashed rgba(56, 189, 248, 0.45);
+  transform: rotateX(68deg) rotateY(18deg);
+  animation: orbitRotate 24s linear infinite;
+}
+
+@media (max-width: 768px) {
+  .ring-primary {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+.ring-secondary {
+  width: 380px;
+  height: 380px;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  transform: rotateX(-52deg) rotateY(32deg);
+  animation: orbitRotateRev 32s linear infinite;
+}
+
+@media (max-width: 768px) {
+  .ring-secondary {
+    width: 290px;
+    height: 290px;
+  }
+}
+
+.ring-tertiary {
+  width: 250px;
+  height: 250px;
+  border: 1px dotted rgba(203, 213, 225, 0.6);
+  transform: rotateX(25deg) rotateY(-45deg);
+}
+
+@keyframes orbitRotate {
+  from { transform: rotateX(68deg) rotateY(18deg) rotateZ(0deg); }
+  to { transform: rotateX(68deg) rotateY(18deg) rotateZ(360deg); }
+}
+
+@keyframes orbitRotateRev {
+  from { transform: rotateX(-52deg) rotateY(32deg) rotateZ(360deg); }
+  to { transform: rotateX(-52deg) rotateY(32deg) rotateZ(0deg); }
+}
+
+.orbit-node {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-primary-blue);
+  box-shadow: 0 0 10px var(--color-sky-accent);
+}
+
+.node-1 { top: -4px; left: 50%; }
+.node-2 { bottom: -4px; right: 25%; }
+
+/* Stage Base Drop Shadow */
+.stage-base-shadow {
+  position: absolute;
+  bottom: 20px;
+  width: 240px;
+  height: 40px;
+  background: radial-gradient(ellipse at center, rgba(37, 99, 235, 0.15) 0%, rgba(16, 24, 40, 0.04) 50%, transparent 80%);
+  filter: blur(14px);
+  pointer-events: none;
+  transform: rotateX(70deg);
+}

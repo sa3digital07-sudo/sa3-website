@@ -1,0 +1,590 @@
+/* ==========================================================================
+   SA³ CONTACT & CONNECT CARD — GLASSMORPHISM COMPONENT
+   Strict Palette: #FFFFFF, #F7FAFC, #EFF7FF, #E5F3FF, #D5EAFE, #2563EB, #101828
+   ========================================================================== */
+
+.contact-connect-wrapper {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Single cohesive large glassmorphic card */
+.contact-connect-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.74);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(228, 234, 241, 0.9);
+  border-radius: 24px;
+  padding: 44px 40px;
+  box-shadow:
+    0 24px 50px -12px rgba(16, 24, 40, 0.08),
+    0 4px 12px -2px rgba(16, 24, 40, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-connect-card:hover {
+  border-color: rgba(147, 197, 253, 0.7);
+  box-shadow:
+    0 28px 60px -14px rgba(37, 99, 235, 0.1),
+    0 6px 16px -2px rgba(16, 24, 40, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+/* Subtle ambient ice-blue lighting inside the card */
+.connect-card-glow {
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.07) 0%, rgba(56, 189, 248, 0.03) 50%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --------------------------------------------------------------------------
+   1. Header Section
+   -------------------------------------------------------------------------- */
+.connect-card-header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 36px auto;
+}
+
+.connect-eyebrow-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: #EFF7FF;
+  border: 1px solid #D5EAFE;
+  border-radius: 9999px;
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #2563EB;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.eyebrow-icon {
+  color: #2563EB;
+}
+
+.connect-main-heading {
+  font-size: clamp(1.85rem, 3.2vw, 2.35rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: #101828;
+  margin: 0 0 12px 0;
+}
+
+.connect-supporting-text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #475467;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   2. Founders Section
+   -------------------------------------------------------------------------- */
+.connect-founders-section {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 32px;
+}
+
+.founders-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  padding: 0 4px;
+}
+
+.founders-lead-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #475467;
+}
+
+.founders-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #101828;
+  background: #EFF7FF;
+  border: 1px solid #D5EAFE;
+  border-radius: 9999px;
+  padding: 4px 10px;
+}
+
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2563EB;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.founders-inner-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.founder-inner-card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(228, 234, 241, 0.95);
+  border-radius: 18px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 16px -2px rgba(16, 24, 40, 0.03);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.founder-inner-card:hover {
+  border-color: rgba(37, 99, 235, 0.4);
+  box-shadow: 0 10px 24px -4px rgba(37, 99, 235, 0.08);
+}
+
+/* Founder Profile Info */
+.founder-info-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.founder-avatar-box {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #EFF7FF 0%, #D5EAFE 100%);
+  border: 1px solid #BFDBFE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.founder-avatar-initials {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #2563EB;
+}
+
+.founder-presence-dot {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #2563EB;
+  border: 2px solid #FFFFFF;
+}
+
+.founder-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.founder-fullname {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: #101828;
+  margin: 0;
+}
+
+.founder-role-tag {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #2563EB;
+  letter-spacing: 0.01em;
+}
+
+/* Phone strip with copy button */
+.founder-phone-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: #F7FAFC;
+  border: 1px solid #E4EAF1;
+  border-radius: 12px;
+  margin-bottom: 18px;
+}
+
+.phone-strip-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #475467;
+}
+
+.strip-phone-icon {
+  color: #2563EB;
+  flex-shrink: 0;
+}
+
+.founder-number-display {
+  font-family: var(--font-mono, monospace);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #101828;
+}
+
+.founder-inline-copy {
+  border: none;
+  background: #FFFFFF;
+  border: 1px solid #E4EAF1;
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #475467;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.15s ease;
+}
+
+.founder-inline-copy:hover {
+  background: #EFF7FF;
+  border-color: #BFDBFE;
+  color: #2563EB;
+}
+
+.founder-inline-copy:focus-visible {
+  outline: 2px solid #2563EB;
+  outline-offset: 1px;
+}
+
+.copy-state-done {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #2563EB;
+}
+
+.copy-state-idle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Action Buttons (Call & WhatsApp) */
+.founder-action-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.founder-btn-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.founder-btn-action:focus-visible {
+  outline: 2px solid #2563EB;
+  outline-offset: 2px;
+}
+
+/* Call Button: Clean ice-blue glass style */
+.founder-btn-action.btn-call {
+  background: #EFF7FF;
+  color: #1D4ED8;
+  border: 1px solid #BFDBFE;
+}
+
+.founder-btn-action.btn-call:hover {
+  background: #DBEAFE;
+  color: #1E40AF;
+  border-color: #93C5FD;
+}
+
+/* WhatsApp Button: SA³ Primary Blue theme */
+.founder-btn-action.btn-whatsapp {
+  background: #2563EB;
+  color: #FFFFFF;
+  border: 1px solid #1D4ED8;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+}
+
+.founder-btn-action.btn-whatsapp:hover {
+  background: #1D4ED8;
+  color: #FFFFFF;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.35);
+}
+
+.btn-external-icon {
+  margin-left: 2px;
+  opacity: 0.85;
+}
+
+/* --------------------------------------------------------------------------
+   Clear Visual Divider
+   -------------------------------------------------------------------------- */
+.connect-card-divider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 36px 0 32px 0;
+  z-index: 1;
+}
+
+.connect-card-divider::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(228, 234, 241, 0.9) 20%, rgba(228, 234, 241, 0.9) 80%, transparent 100%);
+}
+
+.divider-label-pill {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid #E4EAF1;
+  border-radius: 9999px;
+  padding: 5px 16px;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #667085;
+  text-transform: uppercase;
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.04);
+}
+
+/* --------------------------------------------------------------------------
+   3. Company Social / Channels Section
+   -------------------------------------------------------------------------- */
+.connect-channels-section {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 28px;
+}
+
+.channels-section-header {
+  margin-bottom: 16px;
+  padding: 0 4px;
+}
+
+.channels-section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #101828;
+  margin: 0 0 4px 0;
+}
+
+.channels-section-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #475467;
+  margin: 0;
+}
+
+.channels-interactive-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.channel-tile {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(228, 234, 241, 0.95);
+  border-radius: 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+  min-height: 44px;
+}
+
+.channel-tile:hover {
+  border-color: #2563EB;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 20px -4px rgba(37, 99, 235, 0.12);
+  transform: translateY(-2px);
+}
+
+.channel-tile:focus-visible {
+  outline: 2px solid #2563EB;
+  outline-offset: 2px;
+}
+
+.channel-tile-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #EFF7FF;
+  border: 1px solid #D5EAFE;
+  color: #2563EB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.channel-tile:hover .channel-tile-icon-box {
+  background: #2563EB;
+  color: #FFFFFF;
+  border-color: #1D4ED8;
+}
+
+.channel-tile-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.channel-tile-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.channel-tile-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #101828;
+}
+
+.channel-tile-arrow {
+  color: #667085;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.channel-tile:hover .channel-tile-arrow {
+  color: #2563EB;
+  transform: translate(2px, -2px);
+}
+
+.channel-tile-description {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: #475467;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Commitment Footer
+   -------------------------------------------------------------------------- */
+.connect-trust-footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 20px;
+  background: #EFF7FF;
+  border: 1px solid #D5EAFE;
+  border-radius: 14px;
+}
+
+.trust-icon {
+  color: #2563EB;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.trust-text {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #101828;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Behavior (Mobile & Tablet)
+   -------------------------------------------------------------------------- */
+@media (max-width: 860px) {
+  .contact-connect-card {
+    padding: 32px 24px;
+    border-radius: 20px;
+  }
+
+  .founders-inner-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .channels-interactive-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-connect-card {
+    padding: 24px 16px;
+    border-radius: 16px;
+  }
+
+  .connect-main-heading {
+    font-size: 1.55rem;
+  }
+
+  .founders-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .founder-action-buttons {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .founder-inner-card {
+    padding: 18px;
+  }
+
+  .founder-btn-action {
+    width: 100%;
+  }
+
+  .connect-trust-footer {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

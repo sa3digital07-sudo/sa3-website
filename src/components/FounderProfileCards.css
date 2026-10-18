@@ -1,0 +1,365 @@
+/* Founder Profile Cards Styles — SA³ Design System */
+
+.founders-contact-container {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.founders-header-block {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 48px;
+}
+
+.founders-section-title {
+  font-size: clamp(1.8rem, 3.2vw, 2.3rem);
+  margin-top: 14px;
+  margin-bottom: 14px;
+  letter-spacing: -0.025em;
+}
+
+.founders-section-desc {
+  font-size: 1.05rem;
+  color: var(--color-secondary-text);
+  line-height: 1.6;
+}
+
+/* Two Cards Grid */
+.founders-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 860px) {
+  .founders-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* Individual Founder Card */
+.founder-card {
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid rgba(213, 234, 254, 0.85);
+  box-shadow: 0 12px 32px -6px rgba(16, 24, 40, 0.06), 0 0 0 1px rgba(228, 234, 241, 0.8), inset 0 1px 1px rgba(255, 255, 255, 0.95);
+  border-radius: var(--radius-xl);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.founder-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-light-blue);
+  box-shadow: 0 20px 44px -8px rgba(37, 99, 235, 0.12), 0 0 0 1px var(--color-primary-blue), inset 0 1px 1px rgba(255, 255, 255, 0.95);
+}
+
+@media (max-width: 640px) {
+  .founder-card {
+    padding: 24px;
+  }
+}
+
+/* Card Top: Avatar and Status Badge */
+.founder-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.founder-avatar-wrapper {
+  position: relative;
+}
+
+.founder-avatar-initials {
+  width: 58px;
+  height: 58px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--color-ice-blue) 0%, var(--color-pale-blue) 100%);
+  border: 1.5px solid var(--color-light-blue);
+  color: var(--color-primary-blue);
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+}
+
+.founder-online-pulse {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pulse-dot {
+  width: 10px;
+  height: 10px;
+  background: #10B981;
+  border: 2px solid var(--color-white);
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}
+
+.pulse-ping {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #10B981;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: pulsePing 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes pulsePing {
+  75%, 100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+.founder-badge-pill {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-primary-blue);
+  background: var(--color-ice-blue);
+  padding: 5px 12px;
+  border-radius: 9999px;
+  border: 1px solid var(--color-light-blue);
+}
+
+/* Founder Details */
+.founder-info-block {
+  margin-bottom: 24px;
+}
+
+.founder-name {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--color-navy-text);
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+
+.founder-role {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-primary-blue);
+  margin-bottom: 14px;
+}
+
+.founder-intro {
+  font-size: 0.96rem;
+  color: var(--color-secondary-text);
+  line-height: 1.6;
+}
+
+/* Quick Copy Contact Meta Box */
+.founder-meta-box {
+  background: rgba(247, 250, 252, 0.8);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.meta-contact-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 0.88rem;
+}
+
+.meta-icon {
+  color: var(--color-muted-text);
+  flex-shrink: 0;
+}
+
+.meta-link {
+  color: var(--color-navy-text);
+  font-weight: 600;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-grow: 1;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+
+.meta-link:hover {
+  color: var(--color-primary-blue);
+}
+
+.meta-copy-btn {
+  background: var(--color-white);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-secondary-text);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.meta-copy-btn:hover {
+  background: var(--color-ice-blue);
+  color: var(--color-primary-blue);
+  border-color: var(--color-light-blue);
+}
+
+.copied-text {
+  color: #10B981;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+/* Action Buttons Stack */
+.founder-actions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.founder-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 46px;
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid transparent;
+  line-height: 1.4;
+  touch-action: manipulation;
+}
+
+/* Button 1: Call */
+.btn-call {
+  background: var(--color-ice-blue);
+  color: var(--color-primary-blue);
+  border-color: var(--color-light-blue);
+}
+
+.btn-call:hover {
+  background: var(--color-pale-blue);
+  color: var(--color-hover-blue);
+  border-color: var(--color-primary-blue);
+}
+
+/* Button 2: WhatsApp */
+.btn-whatsapp {
+  background: var(--color-primary-blue);
+  color: var(--color-white);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+}
+
+.btn-whatsapp:hover {
+  background: var(--color-hover-blue);
+  color: var(--color-white);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+}
+
+/* Button 3: Email */
+.btn-email {
+  background: var(--color-white);
+  color: var(--color-navy-text);
+  border-color: var(--color-border-strong);
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.04);
+}
+
+.btn-email:hover {
+  background: var(--color-soft-bg);
+  color: var(--color-primary-blue);
+  border-color: var(--color-light-blue);
+}
+
+/* Button 4: LinkedIn */
+.btn-linkedin {
+  background: #0A66C2;
+  color: var(--color-white);
+}
+
+.btn-linkedin:hover {
+  background: #084E96;
+  color: var(--color-white);
+}
+
+/* Button 5: Instagram */
+.btn-instagram {
+  background: linear-gradient(135deg, #101828 0%, #1D4ED8 100%);
+  color: var(--color-white);
+}
+
+.btn-instagram:hover {
+  opacity: 0.92;
+}
+
+.action-arrow {
+  margin-left: auto;
+  opacity: 0.7;
+}
+
+/* Trust Footnote */
+.founders-trust-footer {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 24px;
+  background: var(--color-ice-blue);
+  border-color: var(--color-light-blue);
+  border-radius: var(--radius-md);
+}
+
+.trust-icon {
+  color: var(--color-primary-blue);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.trust-note {
+  font-size: 0.92rem;
+  color: var(--color-secondary-text);
+  line-height: 1.55;
+}
+
+.trust-note strong {
+  color: var(--color-navy-text);
+}

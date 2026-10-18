@@ -1,0 +1,272 @@
+/* SA³ Design System — Precision in Motion */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* Brand Palette */
+  --color-white: #FFFFFF;
+  --color-soft-bg: #F7FAFC;
+  --color-ice-blue: #EFF7FF;
+  --color-pale-blue: #E5F3FF;
+  --color-light-blue: #D5EAFE;
+  --color-primary-blue: #2563EB;
+  --color-hover-blue: #1D4ED8;
+  --color-sky-accent: #38BDF8;
+  --color-navy-text: #101828;
+  --color-secondary-text: #475467;
+  --color-muted-text: #667085;
+  --color-border-subtle: #E4EAF1;
+  --color-border-strong: #CBD5E1;
+
+  /* Glassmorphism Tokens */
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-bg-hover: rgba(255, 255, 255, 0.85);
+  --glass-bg-accent: rgba(239, 247, 255, 0.65);
+  --glass-border: 1px solid rgba(228, 234, 241, 0.85);
+  --glass-border-strong: 1px solid rgba(203, 213, 225, 0.9);
+  --glass-shadow: 0 10px 30px -10px rgba(16, 24, 40, 0.05), 0 1px 3px rgba(16, 24, 40, 0.03);
+  --glass-shadow-hover: 0 20px 40px -12px rgba(37, 99, 235, 0.12), 0 4px 12px rgba(16, 24, 40, 0.04);
+  --glass-highlight: inset 0 1px 1px 0 rgba(255, 255, 255, 0.9);
+  --backdrop-blur: blur(20px) saturate(140%);
+
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Layout */
+  --container-max: 1240px;
+  --nav-height: 76px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--color-soft-bg);
+  color: var(--color-navy-text);
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-soft-bg);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Background Subtle Grid & Precision Geometry */
+.bg-grid-pattern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(to right, rgba(228, 234, 241, 0.4) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(228, 234, 241, 0.4) 1px, transparent 1px);
+  background-size: 56px 56px;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 10%, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 10%, black 40%, transparent 80%);
+}
+
+.site-content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+/* Typography Scale */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-navy-text);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 4.5vw + 0.5rem, 3.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3vw + 0.3rem, 2.5rem);
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2vw + 0.1rem, 1.5rem);
+}
+
+p {
+  color: var(--color-secondary-text);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.mono-tag {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary-blue);
+  background: var(--color-pale-blue);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--color-light-blue);
+}
+
+/* Links */
+a {
+  color: var(--color-primary-blue);
+  text-decoration: none;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+a:hover {
+  color: var(--color-hover-blue);
+}
+
+/* Glass Surface Utility */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: var(--glass-border);
+  box-shadow: var(--glass-shadow), var(--glass-highlight);
+  border-radius: var(--radius-lg);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--color-light-blue);
+  box-shadow: var(--glass-shadow-hover), var(--glass-highlight);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  line-height: 1.4;
+}
+
+.btn-primary {
+  background: var(--color-primary-blue);
+  color: var(--color-white);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.28);
+}
+
+.btn-primary:hover {
+  background: var(--color-hover-blue);
+  color: var(--color-white);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.36);
+}
+
+.btn-secondary {
+  background: var(--color-white);
+  color: var(--color-navy-text);
+  border-color: var(--color-border-strong);
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.05);
+}
+
+.btn-secondary:hover {
+  background: var(--color-ice-blue);
+  color: var(--color-primary-blue);
+  border-color: var(--color-light-blue);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-secondary-text);
+}
+
+.btn-ghost:hover {
+  background: var(--color-ice-blue);
+  color: var(--color-primary-blue);
+}
+
+/* Accessibility: Focus Visible */
+*:focus-visible {
+  outline: 2px solid var(--color-primary-blue);
+  outline-offset: 3px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Accessible Skip Link */
+.skip-to-content {
+  position: absolute;
+  top: -60px;
+  left: 20px;
+  background: var(--color-primary-blue);
+  color: var(--color-white);
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  z-index: 9999;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: top 0.2s ease;
+  text-decoration: none;
+}
+
+.skip-to-content:focus {
+  top: 15px;
+  outline: 3px solid var(--color-navy-text);
+}

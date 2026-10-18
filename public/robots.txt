@@ -1,0 +1,12 @@
+# SA³ robots.txt — Googlebot & Web Crawlers Guidance
+# Target Domain: https://sa3.digital (Update with verified production domain upon deployment)
+
+User-agent: *
+Allow: /
+
+# Exclude private build artifacts or internal assets
+Disallow: /api/
+Disallow: /private/
+
+# Production Sitemap Location
+Sitemap: https://sa3.digital/sitemap.xml

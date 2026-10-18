@@ -1,0 +1,181 @@
+/* About Page Styles */
+
+.about-page-view {
+  position: relative;
+}
+
+.about-intro-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 48px;
+  align-items: flex-start;
+  margin-bottom: 90px;
+}
+
+@media (max-width: 900px) {
+  .about-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+.about-intro-main h2 {
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  margin-top: 14px;
+  margin-bottom: 20px;
+}
+
+.about-intro-main p {
+  font-size: 1.08rem;
+  line-height: 1.65;
+  margin-bottom: 18px;
+}
+
+.about-focus-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.about-focus-list li {
+  padding-left: 20px;
+  position: relative;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--color-secondary-text);
+}
+
+.about-focus-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary-blue);
+  font-weight: 700;
+}
+
+.about-focus-list strong {
+  color: var(--color-navy-text);
+}
+
+.about-sidebar-card {
+  padding: 36px;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.sidebar-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.sidebar-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-navy-text);
+}
+
+.commitment-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.commitment-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--color-secondary-text);
+}
+
+.commitment-list li svg {
+  color: var(--color-primary-blue);
+  flex-shrink: 0;
+}
+
+.mt-4 {
+  margin-top: 16px;
+}
+
+/* Principles Grid */
+.about-principles-section {
+  padding: 80px 0;
+}
+
+.about-principles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 960px) {
+  .about-principles-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-principles-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.about-principle-card {
+  padding: 32px;
+}
+
+.principle-idx {
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--color-primary-blue);
+  display: block;
+  margin-bottom: 12px;
+}
+
+.about-principle-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.about-principle-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Disclosure */
+.about-disclosure-section {
+  padding: 40px;
+  margin: 60px 0 80px;
+  background: var(--color-ice-blue);
+  border-color: var(--color-light-blue);
+  text-align: center;
+}
+
+.disclosure-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.disclosure-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+}
+
+.disclosure-content p {
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.about-faq-section {
+  padding: 60px 0;
+}

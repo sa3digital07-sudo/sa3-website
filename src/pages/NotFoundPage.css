@@ -1,0 +1,83 @@
+/* Not Found Page Styles */
+
+.not-found-page-view {
+  padding: 80px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.not-found-container {
+  max-width: 680px;
+}
+
+.not-found-card {
+  padding: 56px 48px;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .not-found-card {
+    padding: 36px 24px;
+  }
+}
+
+.not-found-title {
+  font-size: 2.4rem;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.not-found-desc {
+  font-size: 1.1rem;
+  color: var(--color-secondary-text);
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.not-found-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.quick-directory-block {
+  padding-top: 28px;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.quick-directory-block h4 {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted-text);
+  margin-bottom: 14px;
+}
+
+.quick-links-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.quick-links-row a {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--color-primary-blue);
+  background: var(--color-ice-blue);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-light-blue);
+}
+
+.quick-links-row a:hover {
+  background: var(--color-light-blue);
+}
