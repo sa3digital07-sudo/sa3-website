@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import {
@@ -17,6 +18,9 @@ import {
   hasValidDestination
 } from '../data/contactConfig';
 import './ContactConnectCard.css';
+
+const ENQUIRY_ENDPOINT =
+  'https://script.google.com/macros/s/AKfycbwZTh0BROczKgWy1MxmU3RFINc9In0h-eWA_y-av1FvP4EREdU5ROwvkZaIYvknqOTI-Q/exec';
 
 /**
  * WhatsApp SVG icon matching brand stroke and fill specifications
@@ -55,6 +59,53 @@ const renderChannelIcon = (id: string) => {
 
 export const ContactConnectCard: React.FC = () => {
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formStatus, setFormStatus] = useState('');
+
+  const handleEnquirySubmit = async (
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
+    event.preventDefault();
+
+    if (isSubmitting) return;
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    const payload = {
+      name: String(formData.get('name') || '').trim(),
+      email: String(formData.get('email') || '').trim(),
+      projectType: String(formData.get('projectType') || '').trim(),
+      message: String(formData.get('message') || '').trim(),
+      website: String(formData.get('website') || '').trim()
+    };
+
+    setIsSubmitting(true);
+    setFormStatus('');
+
+    try {
+      await fetch(ENQUIRY_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      form.reset();
+
+      setFormStatus(
+        'Your enquiry request has been sent from your browser. Delivery will be verified.'
+      );
+    } catch {
+      setFormStatus(
+        'Unable to send. Please email sa3digital07@gmail.com.'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const handleCopy = (text: string, id: string) => {
     if (!navigator.clipboard) return;
@@ -126,7 +177,10 @@ export const ContactConnectCard: React.FC = () => {
                   <div className="founder-info-row">
                     <div className="founder-avatar-box">
                       <span className="founder-avatar-initials">{founder.initials}</span>
-                      <span className="founder-presence-dot" title="Founder active on direct channels" />
+                      <span
+                        className="founder-presence-dot"
+                        title="Founder active on direct channels"
+                      />
                     </div>
 
                     <div className="founder-identity">
@@ -198,8 +252,107 @@ export const ContactConnectCard: React.FC = () => {
           </div>
         </div>
 
+        {/* SA3 Digital Enquiry Form */}
+        <section className="connect-enquiry-section">
+          <div className="enquiry-section-header">
+            <span className="enquiry-eyebrow">START A CONVERSATION</span>
+            <h3>Tell Us About Your Project</h3>
+            <p>
+              Share your idea with us. We'll get back to you to discuss
+              how we can bring it to life.
+            </p>
+          </div>
+
+          <form className="connect-enquiry-form" onSubmit={handleEnquirySubmit}>
+            <div className="enquiry-field-grid">
+              <div className="enquiry-field">
+                <label htmlFor="enquiry-name">Your Name *</label>
+                <input
+                  id="enquiry-name"
+                  name="name"
+                  type="text"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+
+              <div className="enquiry-field">
+                <label htmlFor="enquiry-email">Email Address *</label>
+                <input
+                  id="enquiry-email"
+                  name="email"
+                  type="email"
+                  placeholder="you@example.com"
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="enquiry-field">
+              <label htmlFor="enquiry-project">Project Type</label>
+              <select
+                id="enquiry-project"
+                name="projectType"
+                defaultValue=""
+              >
+                <option value="" disabled>Select project type</option>
+                <option value="Business Website">Business Website</option>
+                <option value="Portfolio Website">Portfolio Website</option>
+                <option value="E-commerce Website">E-commerce Website</option>
+                <option value="Landing Page">Landing Page</option>
+                <option value="Personal Website">Personal Website</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div className="enquiry-field">
+              <label htmlFor="enquiry-message">Project Requirements *</label>
+              <textarea
+                id="enquiry-message"
+                name="message"
+                placeholder="Tell us about your idea and requirements..."
+                rows={5}
+                required
+              />
+            </div>
+
+            <div className="enquiry-honeypot" aria-hidden="true">
+              <input
+                name="website"
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="enquiry-submit-btn"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Sending...' : 'Send Enquiry'}
+              <ArrowUpRight size={17} />
+            </button>
+
+            {formStatus && (
+              <p className="enquiry-status" role="status" aria-live="polite">
+                {formStatus}
+              </p>
+            )}
+
+            <p className="enquiry-privacy-note">
+              <ShieldCheck size={14} />
+              Your information is used only to respond to your enquiry.
+            </p>
+          </form>
+        </section>
+
         {/* Clear Visual Divider Between Founders and Company Social Channels */}
-        <div className="connect-card-divider" role="separator" aria-label="Divider between founders and company channels">
+        <div
+          className="connect-card-divider"
+          role="separator"
+          aria-label="Divider between founders and company channels"
+        >
           <span className="divider-label-pill">OFFICIAL STUDIO CHANNELS</span>
         </div>
 
