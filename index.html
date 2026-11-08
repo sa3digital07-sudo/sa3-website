@@ -5525,15 +5525,49 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   /* ---------------------------------------------------------
      6. Contact form preview and footer year
      --------------------------------------------------------- */
-  const contactForm = document.getElementById('contactForm');
-  const formStatus = document.getElementById('formStatus');
+const contactForm = document.getElementById('contactForm');
+const formStatus = document.getElementById('formStatus');
 
-  if (contactForm && formStatus) {
-    contactForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      formStatus.textContent = 'This preview form is not connected yet. Please email sa3digital07@gmail.com or contact us on WhatsApp.';
-    });
-  }
+if (contactForm && formStatus) {
+  contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.textContent;
+
+    const formData = new FormData(contactForm);
+
+    const enquiry = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      projectType: formData.get('projectType'),
+      message: formData.get('message')
+    };
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending...';
+    formStatus.textContent = 'Sending your enquiry...';
+
+    try {
+      await fetch('https://script.google.com/macros/s/AKfycbwZTh0BROczKgWy1MxmU3RFINc9In0h-eWA_y-av1FvP4EREdU5ROwvkZaIYvknqOTI-Q/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8'
+        },
+        body: JSON.stringify(enquiry)
+      });
+
+      formStatus.textContent = 'Your enquiry has been submitted. We look forward to connecting with you.';
+      contactForm.reset();
+    } catch (error) {
+      formStatus.textContent = 'Unable to send your enquiry. Please email sa3digital07@gmail.com.';
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = originalButtonText;
+    }
+  });
+}
 
   const yearLabel = document.getElementById('year');
   if (yearLabel) {
